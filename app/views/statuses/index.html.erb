@@ -6,11 +6,11 @@
 
 <% @statuses.each do |status| %>
 <div class="status">
-  <strong><%= status.name %></strong>
+  <strong><%= status.user.full_name%></strong>
   <p><%= status.content %></p>
 
   <div class="meta">
-  <%= link_to time_ago_in_words(status.created_at), status %> | 
+  <%= link_to time_ago_in_words(status.created_at)+ " ago", status %>  | 
     <!-- We don't want to show edit and delete to everyone -->
     <span class="admin">
       <%= link_to "Edit", edit_status_path(status) %> |
